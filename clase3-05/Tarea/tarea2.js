@@ -6,28 +6,31 @@
 - Si se ingresa una operación que no está contemplada devolver un mensaje de error.
 */
 
-let numero1 = prompt("Ingrese un número");
-let numero2 = prompt("Ingrese otro número");
-let operacion = prompt("¿Operación a realizar?(suma, resta, multiplicacion, division");
-let suma = parseFloat(numero1) + parseFloat(numero2);
-let resta = numero2 - numero1;
-let division = numero1 / numero2;
-let multiplicacion = numero1 * numero2;
+let numero1 = parseFloat(prompt("Ingrese un número"));
+let numero2 = parseFloat(prompt("Ingrese otro número"));
+let operacion = prompt("¿Operación a realizar?(+, -, *, /");
+
+if (isNaN(numero1)) {
+  console.log("El valor no es un número, será convertido a 0");
+}
+if (isNaN(numero2)) {
+  console.log("El valor no es un número, será convertido a 0");
+}
 
 switch (operacion) {
-  case "suma":
-    console.log(`${numero1} + ${numero2} es igual a ${suma}`);
+  case "+":
+    console.log(`${numero1} + ${numero2} es igual a ${numero2 + numero1}`);
     break;
-  case "resta":
-    console.log(`${numero1} - ${numero2} es igual a ${resta}`);
+  case "-":
+    console.log(`${numero1} - ${numero2} es igual a ${numero2 - numero1}`);
     break;
-  case "division":
-    console.log(`${numero1} / ${numero2} es igual a ${division}`);
+  case "/":
+    console.log(`${numero1} / ${numero2} es igual a ${numero1 / numero2}`);
     break;
-  case "multiplicacion":
-    console.log(`${numero1} * ${numero2} es igual a ${multiplicacion}`);
+  case "*":
+    console.log(`${numero1} * ${numero2} es igual a ${numero1 * numero2}`);
     break;
- default:
-        console.error("ERROR");
-        break;
+  default:
+    console.error("La operación ingresada no existe");
+    break;
 }
